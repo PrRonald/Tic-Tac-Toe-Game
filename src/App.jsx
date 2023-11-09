@@ -4,13 +4,28 @@ function Square({value, onClicked}){
   return <button className="square"onClick={onClicked}>{value}</button>;
 }
 
+function Restart({onClicked}){
+  return <button className="button-restart" onClick={onClicked}>Restart</button>;
+}
+
 export default function Board() {
-  const [square, setSquere] = useState(Array(9).fill(null));
+  const [xgame, StateXgame] = useState(true);
+  const [square, setSquare] = useState(Array(9).fill(null));
 
   function handleClik(i){
-    const nextSqaure = square.slice();
-    nextSqaure[i] = 'X'
-    setSquere(nextSqaure);
+    
+    const nextSquare = square.slice();
+    if (square[i]) return;
+    nextSquare[i] = (xgame) ? 'X': 'O';
+    StateXgame(!xgame);
+    setSquare(nextSquare);
+  }
+
+  function onClickRestar(){
+    if (square.length > 0){
+      setSquare(square.length = 0); 
+      setSquare(square.fill(null));
+    }
   }
 
   return(
@@ -31,6 +46,10 @@ export default function Board() {
         <Square value={square[6]} onClicked={() => handleClik(6)}  />
         <Square value={square[7]} onClicked={() => handleClik(7)}  />
         <Square value={square[8]} onClicked={() => handleClik(8)}  />
+      </div>
+
+      <div>
+        <Restart onClicked ={onClickRestar} />
       </div>
 
 
