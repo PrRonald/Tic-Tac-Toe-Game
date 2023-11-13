@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {Square, Restart} from "./Button"
 
-function Board() {
+function Board({squareInfo}) {
   const [xgame, setXgame] = useState(true);
   const [square, setSquare] = useState(Array(9).fill(null));
 
@@ -11,14 +11,19 @@ function Board() {
     square[i] = (xgame) ? 'X': 'O';
     setXgame(!xgame);
     setSquare(square);
+    squareInfo = square;
+    console.log(squareInfo);
+
   }
 
   function onClickRestar(){
     if (square.length > 0){
       setSquare(Array(9).fill(null));
+      squareInfo = square;
+      console.log(squareInfo);
+
     }
   }
-
 
   return(
     <>

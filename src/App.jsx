@@ -1,9 +1,15 @@
 import Board from "./Board";
 
 function Game(){
+
   return(
-    <Board />
-  )
+    <>
+      <div>
+        <Board  />
+        
+      </div>
+    </>
+      )
 }
 
 export default Game
