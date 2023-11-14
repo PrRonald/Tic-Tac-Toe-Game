@@ -1,28 +1,48 @@
 import { useState } from "react";
-import {Square, Restart} from "./Button"
+import {Square, Restart, Undo, Redo} from "./Button"
 
-function Board({squareInfo}) {
+function Board() {
   const [xgame, setXgame] = useState(true);
   const [square, setSquare] = useState(Array(9).fill(null));
+  const [squareCounter] = useState(Array(9).fill(null));
+  const [counter, setCounter] = useState(0);
+  const [constSquare, setConstSquare] = useState(Array(9).fill(null));
+  const [constCounter, setConstCounter] = useState(Array(9).fill(null));
+
+
 
   function handleClik(i){
-    
-    if (square[i] || calculateWinner(square)) return;
-    square[i] = (xgame) ? 'X': 'O';
+    const cpSquare = square.slice();
+    if (cpSquare[i] || calculateWinner(cpSquare)) return;
+    cpSquare[i] = (xgame) ? 'X': 'O';
+    squareCounter[i] = counter;
     setXgame(!xgame);
-    setSquare(square);
-    squareInfo = square;
-    console.log(squareInfo);
+    setSquare(cpSquare);
+    setConstSquare(cpSquare);
+    setCounter(counter + 1);
 
   }
 
   function onClickRestar(){
     if (square.length > 0){
       setSquare(Array(9).fill(null));
-      squareInfo = square;
-      console.log(squareInfo);
 
     }
+  }
+
+  function onClickedUndo(){
+    const beforeSquare = square.slice();
+    let maxSquare = Math.max(...squareCounter);
+    let indexSquare = squareCounter.indexOf(maxSquare);
+    beforeSquare[indexSquare] = null;
+    squareCounter[indexSquare] = null;
+    setSquare(beforeSquare);
+    console.log(square);
+  }
+
+  function onClickedRedo(){
+    console.log(constSquare);
+    console.log(constCounter);
   }
 
   return(
@@ -46,7 +66,11 @@ function Board({squareInfo}) {
       </div>
 
       <div>
+        <Undo onClicked={onClickedUndo} />
         <Restart onClicked ={onClickRestar} />
+        <Redo onClicked={onClickedRedo} />
+
+
       </div>
 
     </>
