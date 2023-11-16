@@ -2,22 +2,31 @@ import { useState } from "react";
 import {Square, Restart, Undo, Redo} from "./Button"
 
 function Board() {
-  const [xgame, setXgame] = useState(true);
+  const [gamer, setGamer] = useState(true);
   const [square, setSquare] = useState(Array(9).fill(null));
-  const [squareCounter] = useState(Array(9).fill(null));
+  const [squareCounter, setSquareCounter] = useState(Array(9).fill(null));
   const [counter, setCounter] = useState(0);
   const [constSquare, setConstSquare] = useState(Array(9).fill(null));
-  const [constCounter, setConstCounter] = useState(Array(9).fill(null));
+  const [constCounter, setConstCounter ] = useState(Array(9).fill(null));
 
 
 
   function handleClik(i){
     const cpSquare = square.slice();
+    const cpConstSquare = square.slice();
     if (cpSquare[i] || calculateWinner(cpSquare)) return;
-    cpSquare[i] = (xgame) ? 'X': 'O';
+
+    cpSquare[i] = (gamer) ? 'X': 'O';
+    cpConstSquare[i] = (gamer) ? 'X': 'O';
+
+
     squareCounter[i] = counter;
-    setXgame(!xgame);
+    constCounter[i] = counter;
+
+    setGamer(!gamer);
     setSquare(cpSquare);
+    setConstSquare(cpConstSquare);
+
     setConstSquare(cpSquare);
     setCounter(counter + 1);
 
@@ -25,7 +34,11 @@ function Board() {
 
   function onClickRestar(){
     if (square.length > 0){
+      
       setSquare(Array(9).fill(null));
+      setConstCounter(Array(9).fill(null));
+      setCounter(0);
+      setConstSquare(Array(9).fill(null));
 
     }
   }
@@ -34,15 +47,34 @@ function Board() {
     const beforeSquare = square.slice();
     let maxSquare = Math.max(...squareCounter);
     let indexSquare = squareCounter.indexOf(maxSquare);
+
     beforeSquare[indexSquare] = null;
     squareCounter[indexSquare] = null;
+
     setSquare(beforeSquare);
-    console.log(square);
+    setGamer(!gamer);
   }
 
   function onClickedRedo(){
-    console.log(constSquare);
-    console.log(constCounter);
+    let newSquare = constCounter.slice();
+    let cpSquare = square.slice();
+    let cpsquareCounter = squareCounter.slice();
+
+    for (let i = 0; i < constCounter.length; i++) {
+      if(squareCounter[i] == constCounter[i]){
+        newSquare[i] = null;
+      }
+    }
+
+    const filteredArray = newSquare.filter((element) => element !== null);
+    let minSquare = Math.min(...filteredArray);
+    let indexSquare = newSquare.indexOf(minSquare);
+    cpSquare[indexSquare] = constSquare[indexSquare];
+    cpsquareCounter[indexSquare] = constCounter[indexSquare]
+
+    setSquare(cpSquare);
+    setSquareCounter(cpsquareCounter);
+  
   }
 
   return(
