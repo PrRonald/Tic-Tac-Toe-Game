@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Square, Restart, Undo, Redo} from "./Button"
+import {Square, Restart, Undo, Redo, History} from "./Button"
 
 function Board() {
   const [gamer, setGamer] = useState(true);
@@ -27,14 +27,14 @@ function Board() {
     setSquare(cpSquare);
     setConstSquare(cpConstSquare);
 
-    setConstSquare(cpSquare);
+    // setConstSquare(cpSquare);
     setCounter(counter + 1);
 
   }
 
   function onClickRestar(){
     if (square.length > 0){
-      
+
       setSquare(Array(9).fill(null));
       setConstCounter(Array(9).fill(null));
       setCounter(0);
@@ -74,8 +74,9 @@ function Board() {
 
     setSquare(cpSquare);
     setSquareCounter(cpsquareCounter);
-  
   }
+
+  
 
   return(
     <>
@@ -101,8 +102,9 @@ function Board() {
         <Undo onClicked={onClickedUndo} />
         <Restart onClicked ={onClickRestar} />
         <Redo onClicked={onClickedRedo} />
-
-
+      </div>
+      <div>
+        <History setSquare={setSquare} />
       </div>
 
     </>
