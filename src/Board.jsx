@@ -1,15 +1,19 @@
-import { useState } from "react";
-import {Square, Restart, Undo, Redo, History} from "./Button"
+import React from "react";
+import { infoContext } from "./App";
+import { History } from "./History";
+import { Redo } from "./Redo";
+import { Restart } from "./Restar";
+import { Undo } from "./Undo";
+import { Square } from "./Square";
 
 function Board() {
-  const [gamer, setGamer] = useState(true);
-  const [square, setSquare] = useState(Array(9).fill(null));
-  const [squareCounter, setSquareCounter] = useState(Array(9).fill(null));
-  const [counter, setCounter] = useState(0);
-  const [constSquare, setConstSquare] = useState(Array(9).fill(null));
-  const [constCounter, setConstCounter ] = useState(Array(9).fill(null));
 
-
+  const { gamer, setGamer,
+          square, setSquare,
+          squareCounter, setSquareCounter,
+          counter, setCounter,
+          constSquare, setConstSquare,
+          constCounter, setConstCounter } = React.useContext(infoContext);
 
   function handleClik(i){
     const cpSquare = square.slice();
@@ -76,8 +80,6 @@ function Board() {
     setSquareCounter(cpsquareCounter);
   }
 
-  
-
   return(
     <>
       <div className="board-row">
@@ -97,15 +99,15 @@ function Board() {
         <Square value={square[7]} onClicked={() => handleClik(7)}  />
         <Square value={square[8]} onClicked={() => handleClik(8)}  />
       </div>
-
-      <div>
-        <Undo onClicked={onClickedUndo} />
-        <Restart onClicked ={onClickRestar} />
-        <Redo onClicked={onClickedRedo} />
-      </div>
-      <div>
-        <History setSquare={setSquare} />
-      </div>
+        <div>
+           <Undo onClicked={onClickedUndo} />
+           <Restart onClicked ={onClickRestar} />
+           <Redo onClicked={onClickedRedo} />
+        </div>
+        <div>
+           <History/>
+        </div>
+      
 
     </>
   ) 
@@ -131,4 +133,5 @@ function calculateWinner(squares) {
   return null;
 }
 
-export default Board
+export  {Board}
+// export const cont = React.createContext(setSquare);
