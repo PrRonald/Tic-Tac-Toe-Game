@@ -10,10 +10,10 @@ function Board() {
 
   const { gamer, setGamer,
           square, setSquare,
-          squareCounter, setSquareCounter,
+          squareCounter,
           counter, setCounter,
-          constSquare, setConstSquare,
-          constCounter, setConstCounter } = React.useContext(infoContext);
+          setConstSquare,
+          constCounter } = React.useContext(infoContext);
 
   function handleClik(i){
     const cpSquare = square.slice();
@@ -33,52 +33,9 @@ function Board() {
 
     // setConstSquare(cpSquare);
     setCounter(counter + 1);
-
+    console.log(calculateWinner(cpSquare));
   }
 
-  function onClickRestar(){
-    if (square.length > 0){
-
-      setSquare(Array(9).fill(null));
-      setConstCounter(Array(9).fill(null));
-      setCounter(0);
-      setConstSquare(Array(9).fill(null));
-
-    }
-  }
-
-  function onClickedUndo(){
-    const beforeSquare = square.slice();
-    let maxSquare = Math.max(...squareCounter);
-    let indexSquare = squareCounter.indexOf(maxSquare);
-
-    beforeSquare[indexSquare] = null;
-    squareCounter[indexSquare] = null;
-
-    setSquare(beforeSquare);
-    setGamer(!gamer);
-  }
-
-  function onClickedRedo(){
-    let newSquare = constCounter.slice();
-    let cpSquare = square.slice();
-    let cpsquareCounter = squareCounter.slice();
-
-    for (let i = 0; i < constCounter.length; i++) {
-      if(squareCounter[i] == constCounter[i]){
-        newSquare[i] = null;
-      }
-    }
-
-    const filteredArray = newSquare.filter((element) => element !== null);
-    let minSquare = Math.min(...filteredArray);
-    let indexSquare = newSquare.indexOf(minSquare);
-    cpSquare[indexSquare] = constSquare[indexSquare];
-    cpsquareCounter[indexSquare] = constCounter[indexSquare]
-
-    setSquare(cpSquare);
-    setSquareCounter(cpsquareCounter);
-  }
 
   return(
     <>
@@ -100,9 +57,9 @@ function Board() {
         <Square value={square[8]} onClicked={() => handleClik(8)}  />
       </div>
         <div>
-           <Undo onClicked={onClickedUndo} />
-           <Restart onClicked ={onClickRestar} />
-           <Redo onClicked={onClickedRedo} />
+           <Undo/>
+           <Restart/>
+           <Redo/>
         </div>
         <div>
            <History/>

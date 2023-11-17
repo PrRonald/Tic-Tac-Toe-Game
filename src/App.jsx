@@ -13,20 +13,16 @@ function Game(){
   const [constCounter, setConstCounter ] = useState(Array(9).fill(null));
 
   return(
-    <>
-      <div>
-        <infoContext.Provider
-         value={{gamer, setGamer,
-                 square, setSquare,
-                 squareCounter, setSquareCounter,
-                 counter, setCounter,
-                 constSquare, setConstSquare,
-                 constCounter, setConstCounter }}>
-          <Board /> 
-        </infoContext.Provider>
-      </div>
-    </>
-      )
+  <infoContext.Provider
+   value={{gamer, setGamer,
+           square, setSquare,
+           squareCounter, setSquareCounter,
+           counter, setCounter,
+           constSquare, setConstSquare,
+           constCounter, setConstCounter }}>
+    <Board /> 
+  </infoContext.Provider>
+)
 }
 
 export default Game
