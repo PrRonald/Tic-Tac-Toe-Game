@@ -22,7 +22,7 @@ function Restart(){
     }
   }
 
-  return <button className="button-restart" onClick={onClickRestar}>Restart</button>;
+  return <button className="button-Restart button" onClick={onClickRestar}>Restart</button>;
   }
 
   export {Restart};

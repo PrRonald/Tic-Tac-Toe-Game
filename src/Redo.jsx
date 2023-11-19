@@ -29,7 +29,7 @@ import { infoContext } from "./App";
     setSquareCounter(cpsquareCounter);
   }
 
-    return <button className="button-Redo" onClick={onClickedRedo}>Redo</button>;
+    return <button className="button-Redo button" onClick={onClickedRedo}>Redo</button>;
   }
 
 export {Redo};

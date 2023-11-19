@@ -1,90 +1,123 @@
-* {
+*{
   box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-  margin: 20px;
+  margin: 0;
   padding: 0;
 }
 
-h1 {
-  margin-top: 0;
-  font-size: 22px;
+html{
+  font-size: 62.5%;
 }
 
-h2 {
-  margin-top: 0;
-  font-size: 20px;
+.container{
+  height: 80vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 3% ;
 }
 
-h3 {
-  margin-top: 0;
-  font-size: 18px;
+.container-square{
+  height: auto;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  align-items: center;
+  justify-content: center;
+  grid-row: 0;
+  grid-column: 0;
 }
 
-h4 {
-  margin-top: 0;
-  font-size: 16px;
-}
-
-h5 {
-  margin-top: 0;
-  font-size: 14px;
-}
-
-h6 {
-  margin-top: 0;
-  font-size: 12px;
-}
-
-code {
-  font-size: 1.2em;
-}
-
-ul {
-  padding-inline-start: 20px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-  margin: 20px;
+.square-container{
+  border: solid black 1px;
+  margin: 0;
   padding: 0;
+  height: 150px;
+  width: 150px;
 }
 
-.square {
-  background: white;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 34px;
+.square{
+  width: 100%;
+  height: 100%;
+  font-size: 4.5rem;
+  border: none;
+  background-color: white;
 }
 
-.board-row:after {
-  clear: both;
-  content: '';
-  display: table;
+.square-item-0{
+  border-left: none;
+  border-top: none; 
 }
 
-.status {
-  margin-bottom: 10px;
+.square-item-1{
+  border-top: none; 
 }
-.game {
+
+.square-item-2{
+  border-right: none;
+  border-top: none; 
+}
+
+.square-item-3{
+  border-left: none;
+}
+
+.square-item-5{
+  border-right: none; 
+}
+
+.square-item-6{
+  border-left: none;
+  border-bottom: none; 
+}
+
+.square-item-7{
+  border-bottom: none; 
+}
+
+.square-item-8{
+  border-right: none;
+  border-bottom: none; 
+}
+
+.container-button{
+  width: 100%;
+  height: auto;
+}
+
+.container-nav-button{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-button{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  width: 75%;
 }
 
-.game-info {
-  margin-left: 20px;
+.button{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  font-size: 3rem;
+}
+
+.button-Undo{
+  border: none;
+}
+
+.button-Redo{
+  border: none;
+}
+
+.button-Restart{
+  border: none;
+}
+
+.button-History{
+  display: none;
 }

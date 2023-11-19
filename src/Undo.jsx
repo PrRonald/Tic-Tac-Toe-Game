@@ -19,7 +19,7 @@ function Undo(){
     setSquare(beforeSquare);
     setGamer(!gamer);
   }
-  return <button className="button-Undo" onClick={onClickedUndo}>Undo</button>;
+  return <button className="button-Undo button" onClick={onClickedUndo}>Undo</button>;
 }
 
 export {Undo};
