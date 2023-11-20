@@ -31,9 +31,7 @@ function Board() {
     setSquare(cpSquare);
     setConstSquare(cpConstSquare);
 
-    // setConstSquare(cpSquare);
     setCounter(counter + 1);
-    console.log(calculateWinner(cpSquare));
   }
 
 
