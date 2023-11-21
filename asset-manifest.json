@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/PrRonald/Tic-Tac-Toe-Game/static/css/main.101b43be.css",
+    "main.js": "/PrRonald/Tic-Tac-Toe-Game/static/js/main.ee4fd9b4.js",
+    "index.html": "/PrRonald/Tic-Tac-Toe-Game/index.html",
+    "main.101b43be.css.map": "/PrRonald/Tic-Tac-Toe-Game/static/css/main.101b43be.css.map",
+    "main.ee4fd9b4.js.map": "/PrRonald/Tic-Tac-Toe-Game/static/js/main.ee4fd9b4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.101b43be.css",
+    "static/js/main.ee4fd9b4.js"
+  ]
+}
