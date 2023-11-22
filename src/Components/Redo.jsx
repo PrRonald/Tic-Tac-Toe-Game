@@ -1,5 +1,5 @@
 import React from "react";
-import { infoContext } from "./App";
+import { infoContext } from "../App";
 
  function Redo(){
 

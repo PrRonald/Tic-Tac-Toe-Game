@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Board} from "./Board";
+import {Board} from "./Components/Board";
 
 const infoContext = React.createContext(null);
 
