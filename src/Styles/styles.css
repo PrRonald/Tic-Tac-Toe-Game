@@ -4,110 +4,114 @@
   padding: 0;
 }
 
-html{
-  font-size: 62.5%;
+
+#root{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(75, 91, 91);
 }
 
 .container{
-  height: 80vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 3% ;
-}
-
-.container-square{
-  height: auto;
-  width: 80%;
   display: grid;
-  grid-template-columns: repeat(3, auto);
-  align-items: center;
-  justify-content: center;
-  grid-row: 0;
-  grid-column: 0;
-}
+  grid-template-rows: 20vh 80vh;
+  grid-template-columns: 30vw;
+  justify-content: center; 
+  background-color: rgb(75, 91, 91);
 
-.square-container{
-  border: solid black 1px;
-  margin: 0;
-  padding: 0;
-  height: 150px;
-  width: 150px;
-}
-
-.square{
-  width: 100%;
-  height: 100%;
-  font-size: 4.5rem;
-  border: none;
-  background-color: white;
-}
-
-.square-item-0{
-  border-left: none;
-  border-top: none; 
-}
-
-.square-item-1{
-  border-top: none; 
-}
-
-.square-item-2{
-  border-right: none;
-  border-top: none; 
-}
-
-.square-item-3{
-  border-left: none;
-}
-
-.square-item-5{
-  border-right: none; 
-}
-
-.square-item-6{
-  border-left: none;
-  border-bottom: none; 
-}
-
-.square-item-7{
-  border-bottom: none; 
-}
-
-.square-item-8{
-  border-right: none;
-  border-bottom: none; 
 }
 
 .container-button{
   width: 100%;
-  height: auto;
 }
 
 .container-nav-button{
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-cont{
+  padding: 10px 20px;
+}
+
+.button{
+  border-style: none;
+  background-color: rgb(75, 91, 91);
+  font-size: 1.5rem;
+}
+
+.history-button{
+  display: none;
+}
+
+.container-square{
+  width: 100%;
+  height: auto;
+  display: flex;
   justify-content: center;
 }
 
-.nav-button{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 75%;
-}
-
-.button{
+.square-container-items{
   width: 100%;
-  height: 100%;
-  background-color: white;
-  font-size: 3rem;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 150px);
+  justify-content: center;
 }
 
-.button{
-  border: none;
+.square-item{
+  width: 100px;
+}
+
+.square{
+  width:100%;
+  height:100% ;
+  font-size: 3.4rem;
+  border: solid 2px black;
+  background-color: rgb(75, 91, 91);
+
+}
+
+.square-0{
+  border-left: none;
+  border-top: none; 
+}
+
+.square-1{
+  border-top: none; 
+}
+
+.square-2{
+  border-right: none;
+  border-top: none; 
+}
+
+.square-3{
+  border-left: none;
+}
+
+.square-5{
+  border-right: none; 
+}
+
+.square-6{
+  border-left: none;
+  border-bottom: none; 
+}
+
+.square-7{
+  border-bottom: none; 
+}
+
+.square-8{
+  border-right: none;
+  border-bottom: none; 
 }
 
 .button-History{
