@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "predeploy": "npm run build",
-    "deploy": "gp-pages -d build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "browserslist": {
@@ -32,5 +32,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "/home/ronald/Documents/Project/tic-tac/build"
+  "homepage": "https://prronald.github.io/Tic-Tac-Toe-Game/"
 }
