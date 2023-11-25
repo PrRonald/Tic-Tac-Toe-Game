@@ -6,6 +6,7 @@ const infoContext = React.createContext(null);
 function Game(){
 
   const [gamer, setGamer] = useState(true);
+  const [theme, setTheme] = useState(true);
   const [square, setSquare] = useState(Array(9).fill(null));
   const [squareCounter, setSquareCounter] = useState(Array(9).fill(null));
   const [counter, setCounter] = useState(0);
@@ -15,6 +16,7 @@ function Game(){
   return(
   <infoContext.Provider
    value={{gamer, setGamer,
+           theme, setTheme,
            square, setSquare,
            squareCounter, setSquareCounter,
            counter, setCounter,

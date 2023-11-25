@@ -1,3 +1,7 @@
+:root{
+  --main-color: rgb(75, 91, 91);
+}
+
 *{
   box-sizing: border-box;
   margin: 0;
@@ -10,16 +14,24 @@
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-color: rgb(75, 91, 91);
+  background-color: var(--main-color);
+}
+
+.button-themes{
+  font-size: 3.4rem;
+  background-color:var(--main-color);
+  border: none;
+  position: absolute;
+  top: 1vw;
+  right: 1vh;
 }
 
 .container{
   display: grid;
-  grid-template-rows: 20vh 80vh;
-  grid-template-columns: 30vw;
+  grid-template-rows: [star-row] 10vh [midle-row] 85vh [edge-row];
+  grid-template-columns: [star-columns] 30vw [end-columns];
   justify-content: center; 
-  background-color: rgb(75, 91, 91);
-
+  background-color:var(--main-color);
 }
 
 .container-button{
@@ -41,8 +53,8 @@
 
 .button{
   border-style: none;
-  background-color: rgb(75, 91, 91);
-  font-size: 1.5rem;
+  background-color:var(--main-color);
+  font-size: 2.5rem;
 }
 
 .history-button{
@@ -63,6 +75,7 @@
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 150px);
   justify-content: center;
+  align-content: center;
 }
 
 .square-item{
@@ -74,7 +87,7 @@
   height:100% ;
   font-size: 3.4rem;
   border: solid 2px black;
-  background-color: rgb(75, 91, 91);
+  background-color:var(--main-color);
 
 }
 
@@ -117,3 +130,38 @@
 .button-History{
   display: none;
 }
+
+
+
+@media screen and (max-width: 800px) {
+  .container{
+    display: grid;
+    grid-template-rows: [star-row] 90vh [midle-row] 10vh [edge-row];
+    grid-template-columns: [star-columns] 90vw [end-columns];
+    justify-content: center; 
+    background-color:var(--main-color);
+  }
+
+  .container-button{
+    grid-row-start: midle-row;
+    display: flex;
+    justify-content: center;
+   }
+
+  .container-square{
+    display: flex;
+    align-items: center;
+   }
+
+  .square-container-items{
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 150px);
+    justify-content: center;
+    align-content: center;
+   }
+
+}
+

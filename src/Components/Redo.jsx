@@ -1,7 +1,9 @@
 import React from "react";
 import { infoContext } from "../App";
+import { SlControlStart } from "react-icons/sl";
 
- function Redo(){
+
+function Redo(){
 
     const {square, setSquare,
            squareCounter, setSquareCounter,
@@ -29,7 +31,7 @@ import { infoContext } from "../App";
     setSquareCounter(cpsquareCounter);
   }
 
-    return <button className="button-Redo button" onClick={onClickedRedo}>Redo</button>;
+    return <button className="button-Redo button" onClick={onClickedRedo}><SlControlStart /></button>;
   }
 
 export {Redo};

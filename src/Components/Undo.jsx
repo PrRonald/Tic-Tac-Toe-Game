@@ -1,5 +1,6 @@
 import React from "react";
 import { infoContext } from "../App";
+import { SlControlEnd } from "react-icons/sl";
 
 function Undo(){
 
@@ -19,7 +20,7 @@ function Undo(){
     setSquare(beforeSquare);
     setGamer(!gamer);
   }
-  return <button className="button-Undo button" onClick={onClickedUndo}>Undo</button>;
+  return <button className="button-Undo button" onClick={onClickedUndo}><SlControlEnd /></button>;
 }
 
 export {Undo};

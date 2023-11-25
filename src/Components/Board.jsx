@@ -1,11 +1,12 @@
 import React from "react";
 import { infoContext } from "../App";
-import { History } from "./History";
+// import { History } from "./History"; workin on  it
 import { Redo } from "./Redo";
 import { Restart } from "./Restar";
 import { Undo } from "./Undo";
 import { Square } from "./Square";
 import { calculateWinner } from "../JSX/winner";
+import { Theme } from "./theme";
 
 function Board() {
 
@@ -43,22 +44,24 @@ function Board() {
       <div className="container-button">
         <div className="container-nav-button">
 
-            <div className="nav-button-Undo button-cont">
-              <Undo/>
+            <div className="nav-button-Redo button-cont">
+              <Redo/>
             </div>
 
             <div className="nav-button-Restar button-cont">
               <Restart/>
             </div>
 
-            <div className="nav-button-Redo button-cont">
-              <Redo/>
+            <div className="nav-button-Undo button-cont">
+              <Undo/>
             </div>
 
-        </div>
+            
 
-        <div className="history-button">
-           <History/>
+            
+
+           
+
         </div>
       </div>
       
@@ -93,6 +96,9 @@ function Board() {
           </div>
         </div>
       </div>
+    </div>
+    <div className="butto-theme-container">
+        <Theme/>
     </div>
     </>
   ) 

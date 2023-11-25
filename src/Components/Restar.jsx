@@ -1,6 +1,6 @@
 import React from "react";
 import { infoContext } from "../App";
-
+import { TfiControlRecord } from "react-icons/tfi";
 function Restart(){
   
   const {setSquare,
@@ -22,7 +22,7 @@ function Restart(){
     }
   }
 
-  return <button className="button-Restart button" onClick={onClickRestar}>Restart</button>;
+  return <button className="button-Restart button" onClick={onClickRestar}><TfiControlRecord /></button>;
   }
 
   export {Restart};
