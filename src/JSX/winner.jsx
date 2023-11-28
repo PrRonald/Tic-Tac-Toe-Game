@@ -15,7 +15,24 @@ function calculateWinner(squares) {
         return squares[a];
       }
     }
-    return null;
+    return null; 
   }
 
-export {calculateWinner};
+  function isDraw(squares) {
+
+    // Verificar si hay un espacio vacío en el tablero
+    const isBoardFull = squares.every(square => square !== null);
+  
+    // Verificar si hay un ganador
+    const winner = calculateWinner(squares);
+  
+    // Si no hay ganador y el tablero está lleno, es un empate
+    if (!winner && isBoardFull) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+
+export {calculateWinner, isDraw};

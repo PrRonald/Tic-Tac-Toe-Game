@@ -5,17 +5,20 @@ import { Redo } from "./Redo";
 import { Restart } from "./Restar";
 import { Undo } from "./Undo";
 import { Square } from "./Square";
-import { calculateWinner } from "../JSX/winner";
+import { calculateWinner, isDraw } from "../JSX/winner";
 import { Theme } from "./theme";
 
 function Board() {
-
   const { gamer, setGamer,
           square, setSquare,
           squareCounter,
           counter, setCounter,
           setConstSquare,
           constCounter } = React.useContext(infoContext);
+
+  const winner = calculateWinner(square);
+  const draw = isDraw(square); 
+  
 
   function handleClik(i){
     const cpSquare = square.slice();
@@ -36,7 +39,16 @@ function Board() {
     setCounter(counter + 1);
   }
 
+  // this function  resize automatically when is open in a mobil
+  function resize() {
+    const doc =  document.documentElement;
+    doc.style.setProperty('--app-heigh', `${window.innerHeight}px`);
+    
+  }
 
+  window.addEventListener('resize', resize);
+  resize();
+  
   return(
     <>
     <div className="container">
@@ -96,7 +108,12 @@ function Board() {
           </div>
         </div>
       </div>
+
+      <div className="container-turn">
+        <h1>{draw || winner ? ( draw ? "Draw" : "The Winner is " + winner ):(gamer ? "X's turn": "O's turn")}</h1>
+      </div>
     </div>
+
     <div className="butto-theme-container">
         <Theme/>
     </div>

@@ -1,5 +1,6 @@
 :root{
   --main-color: rgb(75, 91, 91);
+  --app-height: 100vh;
 }
 
 *{
@@ -12,11 +13,13 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: var(--app-height);
   background-color: var(--main-color);
+  overflow: hidden;
 }
 
 .button-themes{
+
   font-size: 3.4rem;
   color: black;
   background-color:var(--main-color);
@@ -28,7 +31,7 @@
 
 .container{
   display: grid;
-  grid-template-rows: [star-row] 10vh [midle-row] 85vh [edge-row];
+  grid-template-rows: [star-row] 10vh [second-row] 7vh [midle-row] 83vh [edge-row];
   grid-template-columns: [star-columns] 30vw [end-columns];
   justify-content: center; 
   background-color:var(--main-color);
@@ -45,6 +48,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+.container-turn{
+  grid-row-start: second-row ;
+  justify-self: center;
 }
 
 .button-cont{
@@ -134,26 +142,35 @@
   display: none;
 }
 
-
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   .container{
     display: grid;
-    grid-template-rows: [star-row] 90vh [midle-row] 10vh [edge-row];
+    grid-template-rows: [star-row] 83vh [second-row] 7vh [midle-row] 10vh [edge-row];
     grid-template-columns: [star-columns] 90vw [end-columns];
     justify-content: center; 
     background-color:var(--main-color);
   }
 
-  .container-button{
-    grid-row-start: midle-row;
-    display: flex;
-    justify-content: center;
+  .container-square{
+    grid-row-start: star-row;
+    grid-row-end: second-row;
+    justify-self: center;
    }
 
-  .container-square{
-    display: flex;
-    align-items: center;
+  .container-turn{
+    grid-row-start: second-row;
+    grid-row-end: midle-row;
+    justify-self: center;
+  }
+
+  .container-turn h1{
+    font-size: 2rem;
+  }
+
+  .container-button{
+    grid-row-start: midle-row;
+    grid-row-end: edge-row;
+    justify-self: center;
    }
 
   .square-container-items{
@@ -171,8 +188,12 @@
 @media screen and (max-height: 600px) {
 
   .container{
-    grid-template-rows: [star-row] 75vh [midle-row] 25vh [edge-row];
+    grid-template-rows: [star-row] 75vh [second-row] 10vh [midle-row] 15vh [edge-row];
     grid-template-columns: [star-columns] 90vw [end-columns];
+  }
+
+  .container-turn h1{
+    font-size: 1.5rem;
   }
 
   .container-button{

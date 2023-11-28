@@ -4,7 +4,6 @@ import {Board} from "./Components/Board";
 const infoContext = React.createContext(null);
 
 function Game(){
-
   const [gamer, setGamer] = useState(true);
   const [theme, setTheme] = useState(true);
   const [square, setSquare] = useState(Array(9).fill(null));
